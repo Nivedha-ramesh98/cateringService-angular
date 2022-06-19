@@ -1,0 +1,45 @@
+<p>user-groups works!</p>
+<div>
+    {{ title}}
+
+    <input type="text" [(ngModel)]="title" name="title"/>
+</div>
+
+<br>
+<button typ="button" (click)="isShow = !isShow">Show/Hide</button>
+<div *ngIf="isShow">
+    Showing......
+</div>
+<input type="text" [(ngModel)]="age" name="age"/>
+<div *ngIf="age > 18">
+    You're Major....
+</div>
+
+<select [(ngModel)]="selectedState" (change)="setCity()">
+    <option *ngFor="let state of states"> {{ state }}</option>
+</select>
+{{selectedState}}
+<select>
+    <option *ngFor="let city of cities">{{city}}</option>
+</select>
+
+<div>
+    UserGroups:
+    <br>
+    <form>
+    ID : <input type="text" [(ngModel)]="userGroup.userGroupId" name="grpId"/><br>
+    Name : <input type="text" [(ngModel)]="userGroup.userGroupName" name="grpId"/><br>
+    Description : <input type="text" [(ngModel)]="userGroup.userGroupDescription" name="grpId"/><br>
+    <input type="button" value="Add Group" (click)="addGroup()"/><br>
+    </form>
+</div>
+<div>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Description</th></tr>
+        <tr *ngFor="let group of userGroups">
+            <td>{{group.userGroupId}}</td>
+            <td>{{group.userGroupName}}</td>
+            <td>{{group.userGroupDescription}}</td>
+        </tr>
+    </table>
+</div>
